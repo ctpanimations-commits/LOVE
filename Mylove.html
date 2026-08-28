@@ -1,52 +1,96 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Love</title>
 
-    
-<body>
 
-    <h1 class="head" id="title">My Love for You Is as Endless as the Universe.</h1>
-
-    <style>
-        body {
-            background-color: #f2637b;
-        }
-
-        .head {
-            text-align: center;
-            color: white;
-            font-size: 40px;
-        }
-
-        .letter {
-            display: inline-block;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: appear 0.5s ease forwards;
-        }
-
-        @keyframes appear {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
 </head>
 
-    <script>
-        const title = document.getElementById("title");
-        const text = title.textContent;
+<body>
 
-        title.textContent = "";
+
+<h1 class="head" id="title">
+    My Love for You Is as Endless as the Universe.
+</h1>
+
+<h4 class="text" id="message">
+    When we first started texting each other, it seemed a little bit awkward.
+    When I asked you about yourself and your background, we somehow talked as
+    if we had known each other for a long time, but the truth is, we barely
+    knew each other. HAHAHA. I don't know why, but I felt comfortable with
+    you from the moment we started talking. I think I started falling in love
+    with you as we spent more and more time talking to each other. Even though
+    we hadn't met in person yet, I had already fallen in love with you.
+</h4>
+
+<style>
+    body {
+        margin: 0;
+        min-height: 100vh;
+
+        background: url("Letter.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+      
+        padding-top: 30px;
+    }
+
+    .head {
+        text-align: center;
+        color: white;
+        font-size: 40px;
+
+        margin-top: 0;
+    }
+
+    .text {
+        text-align: center;
+        color: white;
+        font-size: 20px;
+        line-height: 1.6;
+        opacity: 0;
+
+        
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 0 30px;
+    }
+
+ 
+    .letter {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: appear 0.5s ease forwards;
+    }
+
+    @keyframes appear {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .text.show {
+        opacity: 1;
+    }
+</style>
+
+<script>
+    function animateText(element, delay) {
+        const text = element.textContent.trim();
+
+        element.textContent = "";
 
         [...text].forEach((letter, index) => {
             const span = document.createElement("span");
@@ -54,11 +98,33 @@
             span.className = "letter";
             span.textContent = letter === " " ? "\u00A0" : letter;
 
-            span.style.animationDelay = `${index * 0.1}s`;
+            span.style.animationDelay =
+                `${delay + index * 0.05}s`;
 
-            title.appendChild(span);
+            element.appendChild(span);
         });
-    </script>
+    }
+
+    const title = document.getElementById("title");
+    const message = document.getElementById("message");
+
+    const titleLength = title.textContent.trim().length;
+
+  
+    animateText(title, 0);
+
+    
+    const titleTime = titleLength * 0.1 + 0.5;
+
+    setTimeout(() => {
+        message.classList.add("show");
+
+       
+        animateText(message, 0);
+
+    }, titleTime * 1000);
+</script>
+
 
 </body>
 </html>

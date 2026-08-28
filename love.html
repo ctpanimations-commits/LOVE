@@ -1,97 +1,159 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-   <h1> I love you</h1>
-   <br>
-   <p>Happy Second Anniversary Baby ko!!!</p>
-  <h6>Hi!!! HEHEHE, I'm so happy to be with you!
-    We both now naman bebe na, today is my Birthday! and at the same time our Anniversary!!   Woahhhhh.
-    So I made this for you, I hope you like it. I love you so much and I will always love you.
-    I will always be here for you, and I will never leave you. I will always. And also I hope you appreciate it.
-<br>
+    <title>Love Letter</title>
 
-<p> <h4>Would you like to be with me forever?</h4></p>
-<button onclick="window.open('Yes.button.html')">Yes!
-</button>
+    <body>
 
-<button onclick="window.open('No.button.html')">No!
-</button>
 
-  </h6>
+<div class="letter">
+
+    <h1>I love you</h1>
+
+    <p>Happy Second Anniversary Baby ko!!!</p>
+
+    <div class="message">
+        Hi!!! HEHEHE, I'm so happy to be with you!
+        We both now naman bebe na, today is my Birthday!
+        and at the same time our Anniversary!! Woahhhhh.
+
+        So I made this for you, I hope you like it.
+        I love you so much and I will always love you.
+        I will always be here for you, and I will never leave you.
+        I will always. And also I hope you appreciate it.
+    </div>
+
+    <h4>Would you like to be with me forever?</h4>
+
+    <div class="buttons">
+        <button onclick="window.open('Yes.button.html')">
+            Yes! ❤️
+        </button>
+
+        <button onclick="window.open('No.button.html')">
+            No!
+        </button>
+    </div>
+
+</div>
+
+
 </body>
 </html>
 
 <style>
-body {
-    background-color: #2c0d05;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 50px;
-    background-image: url("Letter\ background.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 30px;
-    text-align: justify;
-}
+    body {
+        background-color: #2c0d05;
+        font-family: Arial, sans-serif;
 
-h1 {
-    color: #1a0b2e;
-    font-size: 48px;
-    margin-bottom: 20px;
-    text-align: center;
-}
+        background-image: url("Letter background.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
 
-p {
-    color: hsl(0, 48%, 6%);
-    font-size: 24px;
-    margin-top: 20px;
-}
+        margin: 30px;
+        padding: 50px;
 
-button {
-    padding: 14px 35px;
-    margin: 10px;
+        padding-top: 20px;
+    }
 
-    font-size: 20px;
-    font-weight: bold;
+    .letter {
+        max-width: 900px;
+        margin: 0 auto;
 
-    color: white;
-    background-color: #ff4d6d;
+        
+        padding-bottom: 100px;
+    }
 
-    border: 2px solid #ff1744;
-    border-radius: 12px;
+    h1 {
+        color: #1a0b2e;
+        font-size: 48px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
 
-    cursor: pointer;
+    p {
+        color: hsl(0, 48%, 6%);
+        font-size: 24px;
+        margin-top: 20px;
+        text-align: center;
+    }
 
-    box-shadow:
-        0 0 5px #ff4d6d,
-        0 0 10px #ff4d6d;
+    .message {
+        color: #171717;
+        font-size: 18px;
+        line-height: 1.6;
+        text-align: justify;
+    }
 
-    transition: 0.3s ease;
-}
+    h4 {
+        text-align: center;
+        font-size: 22px;
+        color: #1a0b2e;
+        margin-top: 30px;
+    }
 
+    .buttons {
+        text-align: center;
+    }
 
-button:hover {
-    background-color: #ff1744;
+    button {
+        padding: 14px 35px;
+        margin: 10px;
 
-    transform: scale(1.1);
+        font-size: 20px;
+        font-weight: bold;
 
-    box-shadow:
-        0 0 5px #ff1744,
-        0 0 15px #ff1744,
-        0 0 30px #ff4d6d;
-}
+        color: white;
+        background-color: #ff4d6d;
 
+        border: 2px solid #ff1744;
+        border-radius: 12px;
 
-button:active {
-    transform: scale(0.95);
-}
+        cursor: pointer;
 
+        box-shadow:
+            0 0 5px #ff4d6d,
+            0 0 10px #ff4d6d;
 
+        transition: 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #ff1744;
+
+        transform: scale(1.1);
+
+        box-shadow:
+            0 0 5px #ff1744,
+            0 0 15px #ff1744,
+            0 0 30px #ff4d6d;
+    }
+
+    button:active {
+        transform: scale(0.95);
+    }
+
+    @media (max-width: 600px) {
+        body {
+            margin: 10px;
+            padding: 20px;
+            padding-top: 10px;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+    }
 </style>
+
+
+</head>
 
