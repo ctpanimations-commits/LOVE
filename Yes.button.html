@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <div class="text">PLEASE ENTER</div>
+<button onclick="window.open('Mylove.html')">Phase 1</button>
+</body>
+</html>
+
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background-image: url("Yesbackground.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .text {
+    color: #80f2ff;
+    font-size: 50px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+
+    -webkit-text-stroke: 2px #036772;
+
+    text-shadow:
+        0 0 5px #80f2ff,
+        0 0 10px #23a3b1,
+        0 0 20px #47b1bb,
+        0 0 40px #275357,
+        0 0 80px #036772;
+
+    opacity: 0;
+    transform: translateY(40px);
+    animation: textAppear 2s ease-out forwards;
+
+    margin-bottom: 30px;
+}
+
+        @keyframes textAppear {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 20px;
+            color: #80f2ff;
+            background-color: transparent;
+
+            border: 2px solid #80f2ff;
+            border-radius: 10px;
+
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #036772;
+            color: black;
+            box-shadow: 0 0 15px #80f2ff;
+        }
+    </style>

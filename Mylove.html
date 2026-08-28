@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love</title>
+
+    
+<body>
+
+    <h1 class="head" id="title">My Love for You Is as Endless as the Universe.</h1>
+
+    <style>
+        body {
+            background-color: #f2637b;
+        }
+
+        .head {
+            text-align: center;
+            color: white;
+            font-size: 40px;
+        }
+
+        .letter {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: appear 0.5s ease forwards;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+    <script>
+        const title = document.getElementById("title");
+        const text = title.textContent;
+
+        title.textContent = "";
+
+        [...text].forEach((letter, index) => {
+            const span = document.createElement("span");
+
+            span.className = "letter";
+            span.textContent = letter === " " ? "\u00A0" : letter;
+
+            span.style.animationDelay = `${index * 0.1}s`;
+
+            title.appendChild(span);
+        });
+    </script>
+
+</body>
+</html>

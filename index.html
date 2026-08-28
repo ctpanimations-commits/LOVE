@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Letter</title>
+</head>
+<body>
+    <title>HEART</title>
+        <h1>My Love</h1>
+        <a href="love.html" class="Heart">❤</a>
+</body>
+</html>
+
+<style>
+    body {
+        background-color: #0b132b;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 50px;
+    }
+
+    h1 {
+    color: #39ff88;
+    font-size: 50px;
+    font-weight: bold;
+
+   
+    -webkit-text-stroke: 2px #087a42;
+
+    
+    text-shadow:
+        0 0 5px #39ff88,
+        0 0 10px #39ff88,
+        0 0 20px #168f50;
+
+    
+    animation: loveGlow 2s ease-in-out infinite;
+}
+
+@keyframes loveGlow {
+    0%, 100% {
+        text-shadow:
+            0 0 3px #39ff88,
+            0 0 7px #39ff88,
+            0 0 12px #168f50;
+    }
+
+    50% {
+        text-shadow:
+            0 0 7px #39ff88,
+            0 0 15px #39ff88,
+            0 0 25px #168f50;
+    }
+}
+
+   .Heart {
+    font-size: 300px;
+    color: #ff4d6d;
+    text-decoration: none;
+    display: inline-block;
+
+    -webkit-text-stroke: 2px #720328;
+
+    text-shadow:
+        0 0 5px #f03c57,
+        0 0 10px #ab1414,
+        0 0 20px #eb2c2c,
+        0 0 40px #eb191d,
+        0 0 80px #da2026;
+
+    transition: 0.3s ease;
+
+    animation:
+        textAppear 2s ease-out forwards,
+        heartbeat 1.5s ease-in-out 2s infinite;
+
+    margin-bottom: 30px;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.08);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.08);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+}
+
+
+.Heart:hover {
+    color: #ff8fa3;
+
+    -webkit-text-stroke: 3px #720328;
+
+    text-shadow:
+        0 0 5px #ff4d6d,
+        0 0 15px #ff4d6d,
+        0 0 30px #ff1744,
+        0 0 60px #ff1744,
+        0 0 100px #ff1744;
+
+    transform: scale(1.15);
+}
+
+    @media (max-width: 600px) {
+body {
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 30px;
+        }
+
+        .Heart {
+            font-size: 120px;
+
+            
+        }
+
+
+
+    }
+    
+
+
+</style>
