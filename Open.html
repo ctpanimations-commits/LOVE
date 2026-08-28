@@ -1,0 +1,252 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>Neon Button</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background: #000;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Button */
+        .neon-button {
+            position: relative;
+            width: 280px;
+            height: 85px;
+
+            background: #050505;
+            color: #00ffff;
+
+            border: 2px solid #00ffff;
+            border-radius: 15px;
+
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 4px;
+
+            cursor: pointer;
+            overflow: hidden;
+
+            animation: neonColor 5s linear infinite;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+        }
+
+        /* Moving shine */
+        .neon-button::before {
+            content: "";
+            position: absolute;
+
+            top: 0;
+            left: -100%;
+
+            width: 60%;
+            height: 100%;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.35),
+                transparent
+            );
+
+            transform: skewX(-25deg);
+
+            animation: shine 3s infinite;
+        }
+
+        /* Neon glow */
+        .neon-button::after {
+            content: "";
+            position: absolute;
+            inset: -5px;
+
+            border-radius: 18px;
+
+            background: inherit;
+
+            filter: blur(20px);
+            opacity: 0.25;
+
+            z-index: -1;
+        }
+
+        /* Automatically changing neon colors */
+        @keyframes neonColor {
+            0% {
+                color: #00ffff;
+                border-color: #00ffff;
+                box-shadow:
+                    0 0 10px #00ffff,
+                    0 0 25px #00ffff,
+                    inset 0 0 10px #00ffff;
+            }
+
+            20% {
+                color: #0080ff;
+                border-color: #0080ff;
+                box-shadow:
+                    0 0 10px #0080ff,
+                    0 0 25px #0080ff,
+                    inset 0 0 10px #0080ff;
+            }
+
+            40% {
+                color: #8a2be2;
+                border-color: #8a2be2;
+                box-shadow:
+                    0 0 10px #8a2be2,
+                    0 0 25px #8a2be2,
+                    inset 0 0 10px #8a2be2;
+            }
+
+            60% {
+                color: #ff00ff;
+                border-color: #ff00ff;
+                box-shadow:
+                    0 0 10px #ff00ff,
+                    0 0 25px #ff00ff,
+                    inset 0 0 10px #ff00ff;
+            }
+
+            80% {
+                color: #ff0080;
+                border-color: #ff0080;
+                box-shadow:
+                    0 0 10px #ff0080,
+                    0 0 25px #ff0080,
+                    inset 0 0 10px #ff0080;
+            }
+
+            100% {
+                color: #00ffff;
+                border-color: #00ffff;
+                box-shadow:
+                    0 0 10px #00ffff,
+                    0 0 25px #00ffff,
+                    inset 0 0 10px #00ffff;
+            }
+        }
+
+        /* Moving shine animation */
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+
+            50% {
+                left: 150%;
+            }
+
+            100% {
+                left: 150%;
+            }
+        }
+
+        /* Desktop hover */
+        .neon-button:hover {
+            transform: scale(1.08);
+
+            background: rgba(255, 255, 255, 0.08);
+
+            box-shadow:
+                0 0 15px currentColor,
+                0 0 35px currentColor,
+                0 0 70px currentColor,
+                inset 0 0 20px currentColor;
+
+            filter: brightness(1.4);
+        }
+
+        /* Touch / click effect */
+        .neon-button.touched {
+            transform: scale(0.94);
+
+            filter: brightness(2);
+
+            box-shadow:
+                0 0 20px currentColor,
+                0 0 50px currentColor,
+                0 0 100px currentColor,
+                inset 0 0 30px currentColor;
+        }
+
+        /* Phone */
+        @media (max-width: 600px) {
+            .neon-button {
+                width: 80%;
+                max-width: 360px;
+                height: 90px;
+
+                font-size: 26px;
+                letter-spacing: 5px;
+
+                border-radius: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <button
+        class="neon-button"
+        id="openButton"
+        onclick="window.open('prank.html')">
+        OPEN
+    </button>
+
+    <script>
+        const button = document.getElementById("openButton");
+
+        // Touch effect for phones
+        button.addEventListener("touchstart", () => {
+            button.classList.add("touched");
+        });
+
+        button.addEventListener("touchend", () => {
+            setTimeout(() => {
+                button.classList.remove("touched");
+            }, 300);
+        });
+
+        // Click effect for desktop
+        button.addEventListener("mousedown", () => {
+            button.classList.add("touched");
+        });
+
+        button.addEventListener("mouseup", () => {
+            setTimeout(() => {
+                button.classList.remove("touched");
+            }, 300);
+        });
+    </script>
+
+</body>
+</html>
+```

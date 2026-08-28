@@ -1,0 +1,65 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>Prank Video</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            overflow: hidden;
+        }
+
+        #prankVideo {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <video
+        id="prankVideo"
+        autoplay
+        playsinline
+        controls
+    >
+        <source src="prank.mp4" type="video/mp4">
+        Your browser does not support video playback.
+    </video>
+
+    <script>
+        const video = document.getElementById("prankVideo");
+
+        // Try to start video with sound
+        video.muted = false;
+
+        video.play().catch(() => {
+            // Browser blocked autoplay with sound.
+            // Start after the user's next tap.
+            document.addEventListener("click", () => {
+                video.muted = false;
+                video.play();
+            }, { once: true });
+        });
+    </script>
+
+</body>
+</html>
+```
