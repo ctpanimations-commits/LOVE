@@ -1,31 +1,13 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Love</title>
 
-
-</head>
-
-<body>
-
-
-<h1 class="head" id="title">
-    My Love for You Is as Endless as the Universe.
-</h1>
-
-<h4 class="text" id="message">
-    When we first started texting each other, it seemed a little bit awkward.
-    When I asked you about yourself and your background, we somehow talked as
-    if we had known each other for a long time, but the truth is, we barely
-    knew each other. HAHAHA. I don't know why, but I felt comfortable with
-    you from the moment we started talking. I think I started falling in love
-    with you as we spent more and more time talking to each other. Even though
-    we hadn't met in person yet, I had already fallen in love with you.
-</h4>
-
+```
 <style>
     body {
         margin: 0;
@@ -36,7 +18,6 @@
         background-position: center;
         background-repeat: no-repeat;
 
-      
         padding-top: 30px;
     }
 
@@ -44,7 +25,6 @@
         text-align: center;
         color: white;
         font-size: 40px;
-
         margin-top: 0;
     }
 
@@ -53,19 +33,20 @@
         color: white;
         font-size: 20px;
         line-height: 1.6;
+
         opacity: 0;
 
-        
         max-width: 900px;
         margin: 20px auto;
         padding: 0 30px;
     }
 
- 
+    /* Letter animation */
     .letter {
         display: inline-block;
         opacity: 0;
         transform: translateY(30px);
+
         animation: appear 0.5s ease forwards;
     }
 
@@ -84,19 +65,111 @@
     .text.show {
         opacity: 1;
     }
+
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin-top: 30px;
+    }
+
+    
+    .verse {
+        padding: 14px 35px;
+
+        font-size: 20px;
+        font-weight: bold;
+
+        color: rgb(0, 0, 0);
+        background: rgba(255, 0, 47, 0.8);
+
+        border: 2px solid #ff718b;
+        border-radius: 12px;
+
+        cursor: pointer;
+
+        opacity: 0;
+        transform: translateY(20px);
+
+        transition: 0.3s ease;
+
+        box-shadow:
+            0 0 5px #ffffff,
+            0 0 10px #d5ffd3;
+    }
+
+    
+    .verse.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    
+    .verse:hover {
+        color: white;
+        background: #ff1744;
+
+        transform: scale(1.1);
+
+        box-shadow:
+            0 0 5px #ff4d6d,
+            0 0 15px #ff4d6d,
+            0 0 30px #ff1744,
+            0 0 50px rgba(255, 23, 68, 0.5);
+    }
+
+    /* Click effect */
+    .verse:active {
+        transform: scale(0.95);
+    }
 </style>
 
+</head>
+
+<body>
+
+<h1 class="head" id="title">
+    My Love for You Is as Endless as the Universe.
+</h1>
+
+<h4 class="text" id="message">
+    When we first started texting each other, it seemed a little bit awkward.
+    When I asked you about yourself and your background, we somehow talked as
+    if we had known each other for a long time, but the truth is, we barely
+    knew each other. HAHAHA. I don't know why, but I felt comfortable with
+    you from the moment we started talking. I think I started falling in love
+    with you as we spent more and more time talking to each other. Even though
+    we hadn't met in person yet, I had already fallen in love with you.
+</h4>
+
+<div class="buttons">
+    <button
+        class="verse"
+        id="verse"
+        onclick="window.open('verse.html')">
+        Ruth 1:16-17
+    </button>
+</div>
+
+
 <script>
+
     function animateText(element, delay) {
+
         const text = element.textContent.trim();
 
         element.textContent = "";
 
         [...text].forEach((letter, index) => {
+
             const span = document.createElement("span");
 
             span.className = "letter";
-            span.textContent = letter === " " ? "\u00A0" : letter;
+
+            span.textContent =
+                letter === " " ? "\u00A0" : letter;
 
             span.style.animationDelay =
                 `${delay + index * 0.05}s`;
@@ -105,26 +178,56 @@
         });
     }
 
+
     const title = document.getElementById("title");
     const message = document.getElementById("message");
+    const verse = document.getElementById("verse");
 
-    const titleLength = title.textContent.trim().length;
 
-  
+
+    const titleLength =
+        title.textContent.trim().length;
+
     animateText(title, 0);
 
-    
-    const titleTime = titleLength * 0.1 + 0.5;
+
+   
+
+    const titleTime =
+        titleLength * 0.05 + 0.5;
+
+
 
     setTimeout(() => {
+
         message.classList.add("show");
 
-       
         animateText(message, 0);
 
+
+       
+
+        const messageLength =
+            message.textContent.trim().length;
+
+        const messageTime =
+            messageLength * 0.05 + 0.5;
+
+
+
+
+        setTimeout(() => {
+
+            verse.classList.add("show");
+
+        }, messageTime * 1000);
+
+
     }, titleTime * 1000);
+
 </script>
 
 
 </body>
+
 </html>
