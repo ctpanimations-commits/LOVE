@@ -47,7 +47,7 @@
         opacity: 0;
         transform: translateY(30px);
 
-        animation: appear 0.5s ease forwards;
+        animation: appear 0.1s ease forwards;
     }
 
     @keyframes appear {
@@ -172,7 +172,7 @@
                 letter === " " ? "\u00A0" : letter;
 
             span.style.animationDelay =
-                `${delay + index * 0.05}s`;
+                `${delay + index * 0.01}s`;
 
             element.appendChild(span);
         });
@@ -194,7 +194,7 @@
    
 
     const titleTime =
-        titleLength * 0.05 + 0.5;
+        titleLength * 0.01 + 0.1;
 
 
 
@@ -211,7 +211,7 @@
             message.textContent.trim().length;
 
         const messageTime =
-            messageLength * 0.05 + 0.5;
+            messageLength * 0.01 + 0.1;
 
 
 
